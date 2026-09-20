@@ -1,0 +1,80 @@
+ARRAYS
+   ↓
+STRINGS
+   ↓
+HASHING / HASHMAP / SET
+   ↓
+LINKED LIST
+   ↓
+STACK
+   ↓
+QUEUE
+   ↓
+DEQUE
+But there is one important change:
+
+We won't solve 50 random LeetCode questions.
+
+We'll solve a carefully selected set where each problem teaches you a different pattern or skill.
+
+🥇 1. ARRAYS — START HERE
+Arrays are the foundation for almost everything that comes later.
+
+Learn these concepts first
+Traversal
+Indexing
+Updating
+Searching
+Min/max
+Counting
+Reversing
+In-place modification
+Subarrays
+Prefix sum
+Basic sorting
+Two-pointer introduction
+🔥 Array LeetCode progression
+LEVEL 1 — Absolute Foundation
+#	Problem	Difficulty	What you'll learn
+1	1480. Running Sum of 1d Array	Easy	Traversal
+2	1920. Build Array from Permutation	Easy	Indexing
+3	1470. Shuffle the Array	Easy	Array manipulation
+4	1295. Find Numbers with Even Number of Digits	Easy	Traversal + conditions
+5	217. Contains Duplicate	Easy	Searching / set thinking
+6	1. Two Sum	Easy	Brute force → hashing
+LEVEL 2 — Core Array Skills
+#	Problem	Difficulty	Pattern
+7	121. Best Time to Buy and Sell Stock	Easy	One-pass optimization
+8	53. Maximum Subarray	Medium	Kadane's algorithm
+9	189. Rotate Array	Medium	Array manipulation
+10	283. Move Zeroes	Easy	Two pointers
+11	26. Remove Duplicates from Sorted Array	Easy	Two pointers
+12	88. Merge Sorted Array	Easy	Two pointers
+13	136. Single Number	Easy	XOR / bit thinking
+LEVEL 3 — Strong Array Foundation
+#	Problem	Difficulty	Pattern
+14	238. Product of Array Except Self	Medium	Prefix/suffix
+15	560. Subarray Sum Equals K	Medium	Prefix sum + HashMap
+16	128. Longest Consecutive Sequence	Medium	HashSet
+17	169. Majority Element	Easy	Counting / Boyer-Moore
+18	75. Sort Colors	Medium	Dutch National Flag
+19	54. Spiral Matrix	Medium	Matrix traversal
+20	48. Rotate Image	Medium	Matrix transformation
+These kinds of curated array/string sets are also commonly used in interview-preparation lists on LeetCode.
+
+🎯 After these 20, you should be able to recognize:
+Simple traversal       → Loop
+
+Need to remember seen? → HashSet/HashMap
+
+Pair problem?          → Hashing / Two Pointers
+
+Sorted array?          → Two Pointers / Binary Search
+
+Continuous subarray?   → Sliding Window / Prefix Sum
+
+Maximum subarray?      → Kadane's
+
+Modify in-place?       → Two Pointers
+
+Matrix traversal?      → Boundary / direction logic
