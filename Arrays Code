@@ -1,3 +1,22 @@
+Pair Sum
+def pairSum(nums, target):
+    seen = set()
+
+    for num in nums:
+        need = target - num
+
+        if need in seen:
+            return [need, num]
+
+        seen.add(num)
+
+    return []
+
+
+
+
+
+
 1480. Running Sum of 1d Array
 class Solution:
     def runningSum(self, nums):
