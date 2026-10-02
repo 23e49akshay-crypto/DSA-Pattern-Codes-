@@ -1,4 +1,4 @@
-Single Number(LeetCode):
+136.Single Number(LeetCode):
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
@@ -9,3 +9,23 @@ public:
         return ans;
     }
 };
+
+
+53.Maximum Subarray(LeetCode):
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int currsum = 0,maxsum =INT_MIN;
+
+        for (int val:nums){
+            currsum += val;
+            maxsum =max(currsum,maxsum);
+            if(currsum<0){
+                currsum=0;
+            }
+        }
+        return maxsum;
+        
+    }
+};
+
