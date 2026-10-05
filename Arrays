@@ -177,3 +177,69 @@ class Solution:
         return nums[left]
 
 
+
+
+
+50. Pow(x, n)(Leetcode):
+class Solution:
+    def myPow(self, x, n):
+        if n < 0:
+            x = 1 / x
+            n = -n
+
+        ans = 1
+
+        while n:
+            if n % 2:
+                ans *= x
+
+            x *= x
+            n //= 2
+
+        return ans
+
+
+
+
+121. Best Time to Buy and Sell Stock(Leetcode):
+class Solution:
+    def maxProfit(self, prices):
+        min_price = prices[0]
+        max_profit = 0
+
+        for price in prices:
+            min_price = min(min_price,price)
+
+            profit = price-min_price
+            max_profit = max(max_profit,profit)
+        return max_profit     
+
+
+
+
+
+
+169. Majority Element(Leetcode):
+class Solution:
+    def majorityElement(self, nums):
+        candidate = 0
+        count = 0
+
+        for num in nums:
+            if count == 0:
+                candidate = num
+
+            if num == candidate:
+                count += 1
+            else:
+                count -= 1
+
+        return candidate
+
+
+
+
+
+
+
+
