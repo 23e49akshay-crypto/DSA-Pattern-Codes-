@@ -313,3 +313,124 @@ public:
 
 
 
+
+15. 3Sum(Leetcode):
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> ans;
+        sort(nums.begin(), nums.end());
+
+        for (int i = 0; i < n; i++) {
+            if (i > 0 && nums[i] == nums[i - 1])
+                continue;
+
+            int j = i + 1, k = n - 1;
+
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+
+                if (sum < 0) {
+                    j++;
+
+                } else if (sum > 0) {
+                    k--;
+
+                } else {
+                    ans.push_back({nums[i], nums[j], nums[k]});
+
+                    j++;
+                    k--;
+
+                    while (j < k && nums[j] == nums[j - 1])
+                        j++;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
+
+
+
+
+
+
+11. Container With Most Water
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int maxWater =0;
+        int lp=0,rp=height.size()-1;
+
+        while(lp<rp){
+            int w =rp-lp;
+            int ht =min(height[lp],height[rp]);
+            int currWater =w*ht;
+            maxWater = max(maxWater,currWater);
+
+            height[lp]<height[rp]? lp++:rp--;
+
+        }
+        return maxWater;
+        
+    }
+};
+
+
+
+
+
+
+74. Search a 2D Matrix
+class Solution:
+    def searchMatrix(self, matrix, target):
+        m, n = len(matrix), len(matrix[0])
+        left, right = 0, m * n - 1
+
+        while left <= right:
+            mid = (left + right) // 2
+            num = matrix[mid // n][mid % n]
+
+            if num == target:
+                return True
+            elif num < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return False
+
+
+
+
+
+
+240. Search a 2D Matrix II(Leetcode)
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& mat, int target) {
+        int m = mat.size(),n=mat[0].size();
+
+        int r=0,c=n-1;
+        while(r<m && c>=0){
+            if  (target == mat[r][c]){
+                return true;
+
+            }else if (target < mat[r][c]){
+                c--;
+
+            }else{
+                r++;
+            }
+            
+        }
+        return false;
+        
+    }
+};
+
+
+
