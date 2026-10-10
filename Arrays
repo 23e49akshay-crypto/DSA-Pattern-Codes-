@@ -434,4 +434,228 @@ public:
 
 
 
- thursaday incomplete 
+
+73.Set matrix zeroes(Leetcode):
+class Solution {
+public:
+   void setZeroes(vector<vector<int>>& matrix) {
+       vector<pair<int,int>>v;
+       int n=matrix.size();
+       int m=matrix[0].size();
+       for(int i=0;i<n;i++)
+       {
+           for(int j=0;j<m;j++)
+           {
+               if(matrix[i][j]==0)
+               v.push_back({i,j});
+           }
+       }
+
+
+       for(int i=0;i<v.size();i++)
+       {
+           int x=v[i].first;
+           int y=v[i].second;
+          
+           for(int i=0;i<m;i++)
+           matrix[x][i]=0;
+
+
+           for(int i=0;i<n;i++)
+           matrix[i][y]=0;
+       }
+   }
+};
+
+
+
+
+
+79. Word Search(Leetcode):
+class Solution {
+public:
+int r[4]={-1,1,0,0};
+int c[4]={0,0,-1,1};
+bool helper(int row,int col,vector<vector<char>>& board,int n,int m,int index,string &word,int size,vector<vector<bool>>&visited)
+{
+        if(index==size)
+        return true;
+        visited[row][col]=true;
+        for(int i=0;i<4;i++)
+        {
+           int ur=row+r[i];
+           int uc=col+c[i];
+           if(ur>=0 and ur<n and uc>=0 and uc<m and visited[ur][uc]==false)
+           {
+               if(board[ur][uc]==word[index])
+               {
+                  if(helper(ur,uc,board,n,m,index+1,word,size,visited))
+                  return true;
+               }
+           }
+        }
+        visited[row][col]=false;
+        return false;
+}
+
+
+bool exist(vector<vector<char>>& board, string word) {
+        int n=board.size();
+        int m=board[0].size();
+        char ch=word[0];
+        int size=word.size();
+        vector<vector<bool>>visited(n,vector<bool>(m,false));
+      
+        for(int i=0;i<n;i++)
+        {
+           for(int j=0;j<m;j++)
+           {
+               if(board[i][j]==ch)
+               {
+                   if(helper(i,j,board,n,m,1,word,size,visited))
+                   return true;
+               }
+           }
+        }
+        return false;
+    }
+};
+
+
+
+
+
+
+238. Product of Array Except Self(Leetcode):
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n,1);
+
+        for(int i=1;i<n;i++){
+            ans[i] = ans[i-1]*nums[i-1];
+        }
+         int suffix =1;
+        for(int i=n-2;i>=0;i--){
+            suffix*=nums[i+1];
+            ans[i]*=suffix;
+
+         
+        }
+        return ans;
+    }
+};
+
+
+
+
+
+3. Longest Substring Without Repeating Characters(Leetcode):
+#include <string>
+#include <unordered_set>
+#include <algorithm>
+using namespace std;
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int maxLength = 0;
+        int n = s.length();
+
+        for (int i = 0; i < n; i++) {
+            unordered_set<char> charSet;
+
+            for (int j = i; j < n; j++) {
+                // Stop if the character is repeated
+                if (charSet.find(s[j]) != charSet.end()) {
+                    break;
+                }
+
+                charSet.insert(s[j]);
+
+                // Update the longest substring length
+                maxLength = max(maxLength, j - i + 1);
+            }
+        }
+
+        return maxLength;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+54. Spiral Matrix(Leetcode):
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& mat) {
+       int m = mat.size(),n=mat[0].size();
+       int srow=0,scol=0,erow=m-1,ecol= n-1;
+       vector<int>ans;
+
+       while(srow<=erow && scol <=ecol){
+        for(int j=scol;j<=ecol;j++){
+            ans.push_back(mat[srow][j]);
+
+        }
+        for (int i=srow+1;i<=erow;i++){
+            ans.push_back(mat[i][ecol]);
+
+        }
+        for(int j=ecol-1; j>=scol;j--){
+            if(srow == erow){
+                break;
+            }
+            ans.push_back(mat[erow][j]);
+        }
+        for(int i=erow-1;i>=srow+1;i--){
+            if(scol == ecol){
+                break;
+
+            }
+            ans.push_back(mat[i][scol]);
+
+        }
+        srow++; erow--; scol++;ecol--;
+       }
+       return ans; 
+    }
+};
+
+
+
+
+
+
+560. Subarray Sum Equals K(Leetcode):
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int count = 0;
+        int n = nums.size();
+
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+
+            for (int j = i; j < n; j++) {
+                sum += nums[j];
+
+                if (sum == k) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+};
+
+
+
